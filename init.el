@@ -14,20 +14,30 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
- '(custom-enabled-themes (quote (wheatgrass))))
+;; '(custom-enabled-themes (quote (wheatgrass)))
+ '(package-selected-packages (quote (dracula-theme))))
+
+(load-theme 'dracula t)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(set-frame-parameter (selected-frame) 'alpha (list 75 70))
+(set-frame-parameter (selected-frame) 'alpha (list 80 70))
 (add-to-list 'default-frame-alist (cons 'alpha (list 75 70)))
 
 
 
-;; my custom keymap
+;; custom keymap
 (define-key global-map (kbd "C-x C-o") 'other-window)
+
+;; change window size
+(global-set-key (kbd "M-I") 'shrink-window) 
+(global-set-key (kbd "M-K") 'enlarge-window) 
+(global-set-key (kbd "M-J") 'shrink-window-horizontally) 
+(global-set-key (kbd "M-L") 'enlarge-window-horizontally) 
 
 
 ;; disable emacs autosave ( #file# )
@@ -75,19 +85,12 @@
 (require 'window-numbering)
 (window-numbering-mode 1)
 
-;;
+
 ;;This sector is about initial style 
-;;
-
-(setq initial-frame-alist '((top . 0) (left . 0) (width . 171) (height . 52)));;maxmize frame after launch
-
-(set-default-font "-*-Menlo-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1");;deafault font
-
+(setq initial-frame-alist '((top . 0) (left . 0) (width . 189) (height . 58)));;maxmize frame after launch
+(set-default-font "-*-Menlo-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1");;deafault font
 (tool-bar-mode 0);;hide toolbar
 
-;;
-;;This secotr over
-;;
 
 
 
@@ -108,5 +111,22 @@ by using nxml's indentation rules."
     (message "Ah, much better!"))
 
 
-(set-default-font "-*-Menlo-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")
+
+
+
+
+
+;;neotree
+(add-to-list 'load-path "~/.emacs.d/diy/emacs-neotree-dev")
+(require 'neotree)
+(global-set-key (kbd "C-\\") 'neotree-toggle)
+
+;;melpa
+(require 'package) ;; You might already have this line
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ;; You might already have this line
 
