@@ -14,7 +14,8 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
- '(package-selected-packages (quote (tabbar tabbar-ruler evil dracula-theme))))
+ '(package-selected-packages (quote (evil dracula-theme)))
+ '(tabbar-separator (quote (0.5))))
 
 (load-theme 'dracula t)
 
@@ -24,7 +25,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(set-frame-parameter (selected-frame) 'alpha (list 80 70))
+(set-frame-parameter (selected-frame) 'alpha (list 90 70))
 (add-to-list 'default-frame-alist (cons 'alpha (list 75 70)))
 
 
@@ -56,9 +57,7 @@
   t)
 ;; you can select the key you qprefer to
 
-(define-key global-map (kbd "C-;") 'ace-jump-mode)
-
-
+(define-key global-map (kbd "C-c C-SPC") 'ace-jump-mode)
 
  
 
@@ -72,19 +71,20 @@
   t)
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-c C-;") 'ace-jump-mode-pop-mark)
+(define-key global-map (kbd "C-c C-x C-SPC") 'ace-jump-mode-pop-mark)
 
 
 ;;sr-speedbar
 
-;;(add-to-list 'load-path "~/.emacs.d/diy")
-;;(require 'sr-speedbar)
-;;(global-set-key (kbd "C-x C-\\") 'sr-speedbar-toggle)
+(add-to-list 'load-path "~/.emacs.d/diy")
+(require 'sr-speedbar)
+(global-set-key (kbd "C-x C-\\") 'sr-speedbar-toggle)
 
 ;;window-numbering
 
 (require 'window-numbering)
 (window-numbering-mode 1)
+
 
 ;;This sector is about initial style 
 (setq initial-frame-alist '((top . 0) (left . 0) (width . 156) (height . 58)));;maxmize frame after launch
@@ -116,7 +116,7 @@ by using nxml's indentation rules."
 
 
 
-;;neo-tree
+;;neotree
 (add-to-list 'load-path "~/.emacs.d/diy/emacs-neotree-dev")
 (require 'neotree)
 (global-set-key (kbd "C-\\") 'neotree-toggle)
@@ -145,11 +145,11 @@ by using nxml's indentation rules."
 ;;set C-o as N-mode just one step
 (define-key evil-emacs-state-map (kbd "C-o") 'evil-execute-in-normal-state) 
 
-;;open in window not frame
-(setq ns-pop-up-frames 'nil)
-
 ;;tab-bar
+
+
 (global-set-key (kbd "C-x C-p") 'tabbar-backward-tab)
-(global-set-key (kbd "C-x C-n") 'tabbar-forward-tab)  
+(global-set-key (kbd "C-x C-n") 'tabbar-forward-tab)
 (global-set-key (kbd "C-x C-S-P") 'tabbar-backward-group)
 (global-set-key (kbd "C-x C-S-N") 'tabbar-forward-group)  
+

@@ -571,8 +571,8 @@ current cached copy."
     (((class color grayscale) (background dark))
      :inherit variable-pitch
      :height 0.8
-     :foreground "grey75"
-     :background "gray50"
+     :foreground "white"
+     :background "black"
      )
     (((class mono) (background light))
      :inherit variable-pitch
@@ -598,7 +598,8 @@ current cached copy."
 (defface tabbar-unselected
   '((t
      :inherit tabbar-default
-     :box (:line-width 1 :color "white" :style released-button)
+
+     :underline (:color "white" :style line)
      ))
   "Face used for unselected tabs."
   :group 'tabbar)
@@ -606,8 +607,8 @@ current cached copy."
 (defface tabbar-selected
   '((t
      :inherit tabbar-default
-     :box (:line-width 1 :color "white" :style pressed-button)
-     :foreground "blue"
+     :underline (:color "#77DAFF" :style line)
+     :foreground "#77DAFF"
      ))
   "Face used for the selected tab."
   :group 'tabbar)
@@ -615,7 +616,7 @@ current cached copy."
 (defface tabbar-modified
   '((t
      :inherit tabbar-default
-     :box (:line-width 1 :color "white" :style released-button)
+     :underline (:color "white" :style line)
      :foreground "green"
      ))
   "Face used for unsaved tabs."
@@ -624,7 +625,7 @@ current cached copy."
 (defface tabbar-selected-modified
   '((t
      :inherit tabbar-default
-     :box (:line-width 1 :color "white" :style released-button)
+     :underline (:color "white" :style line)
      :foreground "red"
      ))
   "Face used for unsaved and selected tabs."
@@ -647,7 +648,7 @@ current cached copy."
 (defface tabbar-button
   '((t
      :inherit tabbar-default
-     :box (:line-width 1 :color "white" :style released-button)
+     :underline (:color "white" :style line)
      ))
   "Face used for tab bar buttons."
   :group 'tabbar)
