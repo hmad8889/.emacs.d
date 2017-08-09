@@ -163,7 +163,7 @@ buffer-local wherever it is set."
   :prefix "neo-confirm-"
   :group 'neotree)
 
-(defcustom neo-window-position 'left
+(defcustom neo-window-position 'right
   "*The position of NeoTree window."
   :group 'neotree
   :type '(choice (const left)
